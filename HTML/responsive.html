@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Responsive</title>
+    <style>
+        .container{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: rgb(63, 49, 49);
+            color: white;
+            padding: 0.25rem 1.75rem;
+        }
+
+        .nav {
+            width: 30%;
+            display: flex;
+            justify-content: space-between;
+        }
+        img{
+            border-radius: 100%;
+        }
+        a{
+            text-decoration: none;
+            color: white;
+        }
+        .logo{
+            padding: 0;
+        }
+        @media(max-width:1000px){
+            .container{
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                gap: 1rem;
+            }
+            .nav{
+                flex-direction: column;
+            }
+        }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="logo"><img src="image.png" height="100rem" width="100rem" alt="logo"  /></div>
+      <div class="nav">
+        <a href="list.html">Home</a>
+        <a href="image.png">Contact</a>
+        <a href="grid.html">Login</a>
+      </div>
+    </div>
+  </body>
+</html>

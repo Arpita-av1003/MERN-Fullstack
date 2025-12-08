@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>To-Do List</title>
+    <style>
+      body {
+        background-color: #7474f4;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+        padding: 0;
+        font-family: Arial, sans-serif; 
+      }
+
+      .container {
+        background: rgb(148, 246, 121);
+        padding: 20px;
+        border-radius: 10px;
+        width: 30%;
+        min-width: 350px; 
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); 
+      }
+
+      h2 {
+        margin-top: 0;
+        color: #333;
+      }
+
+      .input-group {
+        display: flex;
+        gap: 10px;
+        margin-bottom: 20px;
+      }
+
+      input[type="text"] {
+        flex-grow: 1;
+        padding: 10px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        outline: none;
+      }
+
+      button {
+        padding: 10px 15px;
+        background-color: #5c67f2;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        font-weight: bold;
+      }
+
+      button:hover {
+        background-color: #4a54c2;
+      }
+
+      ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+
+      #taskList {
+        max-height: 250px; 
+        overflow-y: auto;  
+        padding-right: 5px; 
+      }
+
+      #taskList::-webkit-scrollbar {
+        width: 8px;
+      }
+      #taskList::-webkit-scrollbar-track {
+        background: rgba(255, 255, 255, 0.5);
+        border-radius: 4px;
+      }
+      #taskList::-webkit-scrollbar-thumb {
+        background: rgba(0, 0, 0, 0.2);
+        border-radius: 4px;
+      }
+
+      li {
+        background: #fff;
+        border-bottom: 1px solid #eee;
+        padding: 10px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 10px;
+        border-radius: 4px; 
+        margin-bottom: 5px; 
+      }
+
+      li span {
+        flex-grow: 1;
+        cursor: pointer;
+        word-break: break-all; 
+      }
+
+      li.editing span {
+        display: none;
+      }
+      li.editing input {
+        display: block;
+        width: 100%;
+        padding: 5px;
+      }
+
+      .btn-group {
+        display: flex;
+        gap: 5px;
+        flex-shrink: 0; 
+      }
+
+      .delete-btn {
+        background-color: #ff4d4d;
+      }
+      .delete-btn:hover {
+        background-color: #d93636;
+      }
+
+      .edit-btn {
+        background-color: #f0ad4e;
+      }
+      .edit-btn:hover {
+        background-color: #ec971f;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h2>My Tasks</h2>
+
+      <div class="input-group">
+        <input type="text" id="taskInput" placeholder="Add a new task" />
+        <button id="addBtn">Add</button>
+      </div>
+
+      <ul id="taskList"></ul>
+    </div>
+
+    <script>
+      const taskInput = document.getElementById("taskInput");
+      const addBtn = document.getElementById("addBtn");
+      const taskList = document.getElementById("taskList");
+
+      document.addEventListener("DOMContentLoaded", loadTasks);
+
+      addBtn.addEventListener("click", addTask);
+      taskInput.addEventListener("keypress", (e) => {
+        if (e.key === "Enter") addTask();
+      });
+
+      function addTask() {
+        const text = taskInput.value.trim();
+        if (text === "") return alert("Please write a task!");
+        createTaskElement(text);
+        saveLocalTask(text);
+        taskInput.value = "";
+      }
+
+      function createTaskElement(text) {
+        const li = document.createElement("li");
+        const span = document.createElement("span");
+        span.innerText = text;
+
+        const btnGroup = document.createElement("div");
+        btnGroup.classList.add("btn-group");
+
+        const editBtn = document.createElement("button");
+        editBtn.innerText = "Edit";
+        editBtn.classList.add("edit-btn");
+
+        const deleteBtn = document.createElement("button");
+        deleteBtn.innerText = "Delete";
+        deleteBtn.classList.add("delete-btn");
+
+        btnGroup.appendChild(editBtn);
+        btnGroup.appendChild(deleteBtn);
+        li.appendChild(span);
+        li.appendChild(btnGroup);
+        taskList.appendChild(li);
+
+        deleteBtn.addEventListener("click", () => {
+          taskList.removeChild(li);
+          removeLocalTask(text);
+        });
+
+        editBtn.addEventListener("click", () => {
+          if (editBtn.innerText.toLowerCase() === "edit") {
+            li.classList.add("editing"); 
+            const input = document.createElement("input");
+            input.type = "text";
+            input.value = span.innerText;
+            li.insertBefore(input, span);
+            editBtn.innerText = "Save";
+          } else {
+            const input = li.querySelector("input");
+            const newText = input.value;
+            updateLocalTask(span.innerText, newText);
+            
+            span.innerText = newText;
+            li.removeChild(input);
+            li.classList.remove("editing");
+            editBtn.innerText = "Edit";
+          }
+        });
+      }
+
+      function saveLocalTask(task) {
+        let tasks = getTasksFromStorage();
+        tasks.push(task);
+        localStorage.setItem("tasks", JSON.stringify(tasks));
+      }
+
+      function getTasksFromStorage() {
+        return localStorage.getItem("tasks")
+          ? JSON.parse(localStorage.getItem("tasks"))
+          : [];
+      }
+
+      function loadTasks() {
+        let tasks = getTasksFromStorage();
+        tasks.forEach((task) => createTaskElement(task));
+      }
+
+      function removeLocalTask(task) {
+        let tasks = getTasksFromStorage();
+        const index = tasks.indexOf(task);
+        if (index > -1) {
+            tasks.splice(index, 1);
+        }
+        localStorage.setItem("tasks", JSON.stringify(tasks));
+      }
+
+      function updateLocalTask(oldText, newText) {
+        let tasks = getTasksFromStorage();
+        const index = tasks.indexOf(oldText);
+        if (index !== -1) {
+          tasks[index] = newText;
+          localStorage.setItem("tasks", JSON.stringify(tasks));
+        }
+      }
+    </script>
+  </body>
+</html>

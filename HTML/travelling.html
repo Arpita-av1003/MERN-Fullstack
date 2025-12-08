@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Responsive</title>
+  <style>
+    .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: rgb(7, 7, 7);
+      color: white;
+      padding: 0.25rem 1.75rem;
+
+    }
+
+    .body {
+      height: 100vh;
+      background-image: url('travel.jpeg');
+      background-repeat: no-repeat;
+      background-size: cover;
+      margin: 0;
+      padding: 0;
+    }
+
+    .nav {
+      width: 30%;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    img {
+      border-radius: 100%;
+    }
+
+    a {
+      text-decoration: none;
+      color: white;
+    }
+
+    .logo {
+      padding: 0;
+    }
+
+    @media(max-width:1000px) {
+      .container {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 1rem;
+      }
+
+      .nav {
+        flex-direction: column;
+      }
+    }
+
+    .welc {
+      padding: 15%;
+      justify-items: center;
+      align-items: center;
+      text-decoration: solid;
+      font-weight: 600;
+      font-size: 2rem;
+      color: white;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="body">
+
+    <div class="container">
+      <div class="logo"><img src="image.png" height="100rem" width="100rem" alt="logo" /></div>
+      <div class="nav">
+        <a href="travelling.html">Home</a>
+        <a href="location.html">Locations</a>
+        <a href="About.html">About us</a>
+      </div>
+
+    </div>
+    <main>
+      <div class="welc">
+        <p>Welcome to our travelling website....</p>
+    </main>
+  </div>
+  </main>
+  </div>
+</body>
+
+</html>

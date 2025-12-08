@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CSS layout</title>
+    <style>
+      .name{
+        text-align: left;
+        color: red;
+      }
+        .header {
+        background-color: #9beecd;
+        color: #161414;
+        padding: 1rem 0;
+        margin-bottom: 1rem;
+      }
+      .nav ul {
+        display: flex;
+        justify-content: space-around; 
+        align-items: center; 
+      }
+      p{
+        color: black;
+      }
+
+    
+      .main {
+
+        height: 50vh;
+        display: grid;
+        gap: 1rem;
+      }
+      .content {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 0.5rem;
+      }
+      .col1 {
+        background-color: #4ec5f4;
+        text-align: center;
+        border-radius: 0.5rem;
+      }
+      .col2 {
+        background-color: #4ec5f4;
+        text-align: center;
+        border-radius: 0.5rem;
+      }
+      .col3 {
+        background-color: #4ec5f4;
+        text-align: center;
+        border-radius: 0.5rem;
+      }
+      .footer {
+        background-color: pink;
+        color: #bdc3c7;
+        text-align: center;
+        padding: 20px 0;
+        margin-top: 40px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="name"><h1>CSS Layout</h1></div>
+    <header class="header">
+      <div class="container">
+        <nav class="nav">
+          <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Services</a></li>
+            <li><a href="#">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <main class="main">
+      <div class="content">
+        <div class="col1">
+          <h1>Column_1</h1>
+          <p>This is first column.</p>
+        </div>
+        <div class="col2">
+          <h1>Column_2</h1>
+          <p>This is second column.</p>
+        </div>
+        <div class="col3">
+          <h1>Column_3</h1>
+          <p>This is third column.</p>
+        </div>
+      </div>
+    </main>
+    <footer class="footer">
+      <div class="foot_container">
+        <p>This is the footer area.</p>
+      </div>
+    </footer>
+  </body>
+</html>
