@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CS Display</title>
+    <style>
+      /* .inline-block{
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            margin: 5px;
+            display: inline-block;
+        } */
+      /* .box{
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            background-color: aqua;
+            justify-content: center;
+            height: 500px;
+            
+         }
+         .flexbox{
+            width: 100px;
+            height: 100px;
+            background-color: pink;
+            margin: 5px;
+         } */
+
+      .gridBox {
+        background-color: rgb(28, 224, 224);
+        display: grid;
+        grid-template-columns: 300px 300px 300px;
+      }
+      .gridbox{
+        background-color: blue;
+        padding: 20px;
+        font-size: 40px;
+        text-align: center;
+        margin: 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Inline-block,none,flex,grid -->
+    <!-- <div class="container">
+        <div class="inline-block"></div>
+         <div class="inline-block"></div>
+          <div class="inline-block"></div>
+           <div class="inline-block"></div>
+     </div> -->
+    <!-- <div class="box">
+        <div class="flexbox"></div>
+        <div class="flexbox"></div>
+        <div class="flexbox"></div>
+        <div class="flexbox"></div>
+     </div> -->
+    <div class="gridBox">
+      <div class="gridbox">1</div>
+      <div class="gridbox">2</div>
+      <div class="gridbox">3</div>
+      <div class="gridbox">4</div>
+      <div class="gridbox">5</div>
+      <div class="gridbox">6</div>
+    </div>
+  </body>
+</html>

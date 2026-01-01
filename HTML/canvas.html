@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Canvas</title>
+   <style>
+    *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    body{
+        background-color:#333;
+        color: white;
+    }
+    canvas{
+        border-radius: 5px;
+        background-color: pink;
+        width: 80%;
+        height: 80%;
+    }
+   </style> 
+</head>
+<body>
+    <canvas id="canvas" width="600" height="600"></canvas>
+</body>
+<script>
+    const canvas =document.getElementById('canvas');
+    const ctx = canvas.getContext('2d');
+    
+    // fill rect
+    // ctx.fillStyle = "red";
+    // ctx.fillRect(20,20,80,50);
+    // ctx.fillStyle="blue";
+    // ctx.fillRect(120,20,150,50);
+
+    // stroke rect
+    // ctx.lineWidth =1;
+    // ctx.strokeStyle = "green";
+    // ctx.strokeRect(20,20,80,30);
+
+    // ctx.lineWidth =2;
+    // ctx.strokeStyle = "aqua";
+    // ctx.strokeRect(120,20,80,30);
+
+    // clear rect
+    // ctx.fillRect(20,20,80,50);
+</script>
+</html>

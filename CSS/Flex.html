@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flexbox</title>
+    <style>
+       *{
+        margin:0;
+        padding:0;
+       }
+       .container{
+        background-color: aquamarine;
+        max-width: 800px;
+        min-height: 400px;
+       }
+       .container p{
+        background-color: red;
+        color: white;
+        font-size: 25px;
+        border: 1px solid black;
+        box-sizing: border-box;
+        margin: 3px;
+       }
+       .flexcont{
+                display: flex;
+                /* flex-direction: column; */
+                justify-content: center;
+                align-items: center;
+       }
+    </style>
+</head>
+<body>
+    <div class="container flexcont">
+        <p>Hey </p>
+        <p>there</p>
+        <p>how</p>
+        <p>are</p>
+        <p>you</p>
+    </div>
+</body>
+</html>
