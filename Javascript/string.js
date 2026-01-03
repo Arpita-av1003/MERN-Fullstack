@@ -15,8 +15,32 @@
       
 // });    
 
-let str2="Hi Appu";
-for(let index=0;index<str2.length;index++){
-    console.log(str2.charAt(index));
+// let str2="Hi Appu";
+// for(let index=0;index<str2.length;index++){
+//     console.log(str2.charAt(index));
     
-}
+// }
+
+
+// includes()
+// const msg ="  I am in a big Problem";
+// // console.log(msg.includes("am"));
+// if(msg.includes("am")){
+//     console.log("yes");
+    
+// }else{
+//     console.log("no");
+    
+// }
+
+
+// const str ="I have this problem which creates a load.";
+// const vowels ="aeiouAIOUE";
+// for(let char of str){
+//     if(vowels.includes(char)){
+//         console.log(`${char} is a vowel`);
+        
+//     }
+// }
+
+
