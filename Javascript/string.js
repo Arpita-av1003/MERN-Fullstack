@@ -43,4 +43,49 @@
 //     }
 // }
 
+// const str ="I have this problem which creates a load.";
+// const vowels ="aeiouAIOUE";
+// let flag =false;
 
+// for(let char of str){
+//     if(vowels.includes(char)){
+//         flag =true;
+//         break;
+//     }else{
+//         flag=false;
+//     }
+// }
+// if (flag === true){
+//     console.log("String has vowels");
+    
+// }else{
+//     console.log("String does not have vowels");
+    
+// }
+
+// toUppercase and toLowercase
+// const str="Arpita";
+// console.log(str.toLowerCase());
+// console.log(str.toUpperCase());
+
+// substring
+// const userName ="Arpita Singh";
+// const subString =userName.substring(0,10);
+// console.log(subString);
+
+
+class Solution {
+    alphabets(c1, c2) {
+        let result = "";
+        let start = c1.charCodeAt(0);
+        let end = c2.charCodeAt(0);
+
+        for (let i = start; i <= end; i++) {
+            // Append the character and a space
+            result += String.fromCharCode(i) + " ";
+        }
+
+        // .trim() removes the trailing space at the end
+        return result.trim();
+    }
+}
