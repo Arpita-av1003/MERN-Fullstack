@@ -10,8 +10,8 @@
 // test();
 
 // block scope
-{
-    let a=1;
-    const b=89;
-    var c=88;
-}
+// {
+//     let a=1;
+//     const b=89;
+//     var c=88;
+// }
