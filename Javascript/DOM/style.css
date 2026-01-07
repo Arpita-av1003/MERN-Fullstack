@@ -25,3 +25,20 @@ button{
     width: 100px;
     border-radius: 10px;
 }
+.btn-red{
+    background-color: red;
+    color: white;
+}
+.inpcontainer{
+      display: flex;
+      justify-content: center;
+      
+}
+.input{
+    background-color: white;
+    color: black;
+    height: 50px;
+    width: 300px;
+    margin-top: 20px;
+
+}
