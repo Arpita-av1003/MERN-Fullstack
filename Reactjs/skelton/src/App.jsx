@@ -1,13 +1,17 @@
-import React from 'react'
-import Card from './Card'
+import React from "react";
+import Card from "./Card";
+import Skelton from "./Skelton";
+import { useState, useEffect } from "react";
 
 const App = () => {
-  return (
-    <div className="flex justify-center items-center min-h-screen bg-gray-100 p-4">
-      <Card />
-    </div>
-  )
-}
+  const [loading, setLoading] = useState(true);
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setLoading(false);
+    }, 5000);
+    return () => clearTimeout(timer);
+  }, []);
+  return <div>{loading ? <Skelton /> : <Card />}</div>;
+};
 
-export default App
-
+export default App;
